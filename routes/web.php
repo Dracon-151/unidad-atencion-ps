@@ -20,11 +20,11 @@ Route::get('/', function () {
 })->name('welcome')->middleware('guest');
 
 Route::post('login', function () {
-    return redirect('dashboard');
+    return redirect('inicio');
 })->name('login');
 
-Route::get('dashboard', function () {
-    return view('admin.dashboard'); 
+Route::get('inicio', function () {
+    return view('admin.buscar-registro'); 
 });
 
 Route::get('reset-password/{token}/{email}', function () {
@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::group(['middleware' => ['role:Administrador']], function () {
 
-        //Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+        //Route::get('inicio', [HomeController::class, 'index'])->name('inicio');
     
     });
 });
