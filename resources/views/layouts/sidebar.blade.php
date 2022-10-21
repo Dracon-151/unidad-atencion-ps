@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" role="button">
+                            <a href="{{route('register.create')}}" class="nav-link menu-link" role="button">
                                 <i class="mdi mdi-sticker-text-outline"></i><span data-key="t-dashboards">Registrar nuevo</span>
                             </a>
                         </li>

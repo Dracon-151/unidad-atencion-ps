@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\Web\HomeController;
@@ -23,19 +24,8 @@ Route::post('login', function () {
     return redirect('buscar');
 })->name('login');
 
-Route::get('buscar', function () {
-    return view('admin.buscar-registro'); 
-})->name('register.index');
-
-Route::get('reset-password/{token}/{email}', function () {
-    return view('reset-password');
-})->name('password.reset');
-
-Route::middleware(['auth'])->group(function () {
-
-    Route::group(['middleware' => ['role:Administrador']], function () {
-
-        //Route::get('inicio', [HomeController::class, 'index'])->name('inicio');
-    
-    });
-});
+Route::get('buscar', [RegisterController::class, 'index'])->name('register.index');
+Route::get('registros/{id}', [RegisterController::class, 'show'])->name('register.details');
+Route::get('registrar', [RegisterController::class, 'create'])->name('register.create');
+Route::put('registros/{id}', [RegisterController::class, 'update'])->name('register.update');
+Route::post('registros', [RegisterController::class, 'store'])->name('register.store');

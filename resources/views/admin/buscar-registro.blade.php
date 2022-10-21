@@ -22,7 +22,7 @@
 					<div class="row g-4 mb-3">
 						<div class="col-sm-auto">
 							<div>
-								<button type="button" class="btn btn-success add-btn" id="create-btn"><i class="ri-add-line align-bottom me-1"></i>Crear registro</button>
+								<a href="{{route('register.create')}}" class="btn btn-success add-btn" id="create-btn"><i class="ri-add-line align-bottom me-1"></i>Crear registro</a>
 							</div>
 						</div>
 						<div class="col-sm">
@@ -49,16 +49,16 @@
 								</tr>
 							</thead>
 							<tbody class="list">
-								@foreach (array(1) as $registro)
+								@foreach ($registros as $registro)
 								<tr>
-									<td class="date">2022/10/20</td>									
-									<td class="name">{{$registro}}</td>
-									<td class="school">Ignacio Zaragoza</td>
-									<td class="attention_type">Orientación</td>
-									<td class="location">La Paz</td>
-									<td class="municipality">La Paz</td>
+									<td class="date">{{$registro->date}}</td>									
+									<td class="name">{{$registro->name}}</td>
+									<td class="school">{{$registro->school}}</td>
+									<td class="attention_type">{{$registro->attention_type}}</td>
+									<td class="location">{{$registro->location}}</td>
+									<td class="municipality">{{$registro->municipality}}</td>
 									<td class="details">
-										<button class="btn btn-sm btn-info">Detalles</button>
+										<a href="{{route('register.details', ['id'=>$registro->id])}}" class="btn btn-sm btn-info">Detalles</a>
 									</td>
 								</tr>
 								@endforeach
