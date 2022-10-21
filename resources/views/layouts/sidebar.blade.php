@@ -35,7 +35,7 @@
                         </li>-->
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" role="button">
+                            <a href="{{route('register.index')}}" class="nav-link menu-link" role="button">
                                 <i class="mdi mdi-magnify"></i><span data-key="t-dashboards">Buscar Registro</span>
                             </a>
                         </li>

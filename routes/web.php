@@ -20,12 +20,12 @@ Route::get('/', function () {
 })->name('welcome')->middleware('guest');
 
 Route::post('login', function () {
-    return redirect('inicio');
+    return redirect('buscar');
 })->name('login');
 
-Route::get('inicio', function () {
+Route::get('buscar', function () {
     return view('admin.buscar-registro'); 
-});
+})->name('register.index');
 
 Route::get('reset-password/{token}/{email}', function () {
     return view('reset-password');
